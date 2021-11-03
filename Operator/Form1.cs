@@ -12,6 +12,8 @@ namespace Operator
 {
     public partial class Form1 : Form
     {
+        string start = "";
+        string stop = "";
         public Form1()
         {
             InitializeComponent();
@@ -42,20 +44,61 @@ namespace Operator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            textStart.Text = DateTime.Now.ToLongTimeString();
+            if(textPcNum.Text != "")
+            {
+                textStart.Text = DateTime.Now.ToLongTimeString();
+                start = start + textPcNum.Text + ">" + textStart.Text + "\n";
+            }
+            else
+            {
+                MessageBox.Show("Please verify your box pc-number again!");
+            }
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            textStop.Text = DateTime.Now.ToLongTimeString();
+            if(
+                textPcNum.Text !="")
+            {
+                string[] st = start.Split('\n');
 
-            string Start = textStart.Text;
-            string Stop = textStop.Text;
+                foreach(string s in st)
+                {
+                    if(s !="")
+                    {
+                        string[] ss = s.Split('>');
+                        if(ss[0]==textPcNum.Text)
+                        {
+                            textStart.Text = ss[1];
+                            break;
+                        }
+                    }
+                }
 
-            TimeSpan Result = DateTime.Parse(Stop) - DateTime.Parse(Start);
+                textStop.Text = DateTime.Now.ToLongTimeString();
 
-            textResult.Text = Start + " and " + Stop + " duration " + Result.ToString();
+                string Start = textStart.Text;
+                string Stop = textStop.Text;
 
+                TimeSpan Result = DateTime.Parse(Stop) - DateTime.Parse(Start);
+
+                textResult.Text = Start + " and " + Stop + " duration " + Result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Please verify your box pc-number again!");
+            }
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(start);
         }
     }
 }
