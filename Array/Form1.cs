@@ -65,14 +65,98 @@ namespace Array
             //MessageBox.Show(st);
         }
 
-        int[] a = new int[1] { 10 };
+        //int[] a = new int[1] { 10 };
+        string[] a = new string[1];
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            int[] b = new int[a.Length + 1];
-            for (int i = 0; i < a.Length; i++) b[i] = a[i];
-            a = b;
+            //int[] b = new int[a.Length + 1];
+            //for (int i = 0; i < a.Length; i++) b[i] = a[i];
+            //a = b;
 
-            MessageBox.Show(a[0] + "and" + a[1]);
+            //MessageBox.Show(a[0] + "and" + a[1]);
+            if (textRoomID.Text == "" || textRoomType.Text == "" || textRoomPrice.Text == "" || textStatus.Text == "")
+            {
+                MessageBox.Show("Please input all data in the box!");
+            }
+            else
+            {
+                a[a.Length - 1] = textRoomID.Text + "\t" + textRoomType.Text + "\t" + textRoomPrice + "\t" + textStatus.Text;
+                string[] b = new string[a.Length + 1];
+                for (int i = 0; i < a.Length; i++) b[i] = a[i];
+                a = b;
+
+                textRoomID.Focus();
+                textRoomID.Clear();
+                textRoomType.Clear();
+                textRoomPrice.Clear();
+                textStatus.Clear();
+            }
+
+        }
+
+        private void bntSearch_Click(object sender, EventArgs e)
+        {
+            if (textRoomID.Text != "")
+            {
+                textRoomType.Clear();
+                textRoomPrice.Clear();
+                textStatus.Clear();
+
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] != null)
+                    {
+                        string[] st = a[i].Split('\t');
+                        if (st[0] == textRoomID.Text)
+                        {
+                            textRoomID.Text = st[0];
+                            textRoomType.Text = st[1];
+                            textRoomPrice.Text = st[2];
+                            textStatus.Text = st[3];
+                            return;
+                        }
+                    }
+                }
+                textRoomID.Focus();
+                MessageBox.Show("Search room not found!");
+            }
+            else
+            {
+                textRoomID.Focus();
+                MessageBox.Show("Please enter room ID to search");
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (textRoomID.Text != "")
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (a[i] != null)
+                    {
+                        string[] st = a[i].Split('\t');
+                        if (st[0] == textRoomID.Text)
+                        {
+                            a = a.Where(val => val != a[i]).ToArray();
+
+                            textRoomID.Focus();
+                            textRoomID.Clear();
+                            textRoomType.Clear();
+                            textRoomPrice.Clear();
+                            textStatus.Clear();
+                            return;
+                        }
+                    }
+                }
+                textRoomID.Focus();
+                MessageBox.Show("Room ID not found");
+            }
+            else
+            {
+                textRoomID.Focus();
+                MessageBox.Show("Please enter room ID to delete");
+            }
         }
     }
 }

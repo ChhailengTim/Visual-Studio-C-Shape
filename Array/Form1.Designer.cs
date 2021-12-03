@@ -30,15 +30,15 @@ namespace Array
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtRoomNumber = new System.Windows.Forms.TextBox();
+            this.textRoomID = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.bntSearch = new System.Windows.Forms.Button();
-            this.txtRoomType = new System.Windows.Forms.TextBox();
+            this.textRoomType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtRoomPrice = new System.Windows.Forms.TextBox();
+            this.textRoomPrice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
+            this.textStatus = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -47,16 +47,16 @@ namespace Array
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(32, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 15);
+            this.label1.Size = new System.Drawing.Size(53, 15);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Room Number";
+            this.label1.Text = "Room ID";
             // 
-            // txtRoomNumber
+            // textRoomID
             // 
-            this.txtRoomNumber.Location = new System.Drawing.Point(128, 50);
-            this.txtRoomNumber.Name = "txtRoomNumber";
-            this.txtRoomNumber.Size = new System.Drawing.Size(228, 23);
-            this.txtRoomNumber.TabIndex = 1;
+            this.textRoomID.Location = new System.Drawing.Point(128, 50);
+            this.textRoomID.Name = "textRoomID";
+            this.textRoomID.Size = new System.Drawing.Size(228, 23);
+            this.textRoomID.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -76,13 +76,14 @@ namespace Array
             this.bntSearch.TabIndex = 5;
             this.bntSearch.Text = "Search";
             this.bntSearch.UseVisualStyleBackColor = true;
+            this.bntSearch.Click += new System.EventHandler(this.bntSearch_Click);
             // 
-            // txtRoomType
+            // textRoomType
             // 
-            this.txtRoomType.Location = new System.Drawing.Point(128, 88);
-            this.txtRoomType.Name = "txtRoomType";
-            this.txtRoomType.Size = new System.Drawing.Size(228, 23);
-            this.txtRoomType.TabIndex = 4;
+            this.textRoomType.Location = new System.Drawing.Point(128, 88);
+            this.textRoomType.Name = "textRoomType";
+            this.textRoomType.Size = new System.Drawing.Size(228, 23);
+            this.textRoomType.TabIndex = 4;
             // 
             // label2
             // 
@@ -101,13 +102,14 @@ namespace Array
             this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtRoomPrice
+            // textRoomPrice
             // 
-            this.txtRoomPrice.Location = new System.Drawing.Point(128, 126);
-            this.txtRoomPrice.Name = "txtRoomPrice";
-            this.txtRoomPrice.Size = new System.Drawing.Size(228, 23);
-            this.txtRoomPrice.TabIndex = 7;
+            this.textRoomPrice.Location = new System.Drawing.Point(128, 126);
+            this.textRoomPrice.Name = "textRoomPrice";
+            this.textRoomPrice.Size = new System.Drawing.Size(228, 23);
+            this.textRoomPrice.TabIndex = 7;
             // 
             // label3
             // 
@@ -118,12 +120,12 @@ namespace Array
             this.label3.TabIndex = 6;
             this.label3.Text = "Room Price";
             // 
-            // txtStatus
+            // textStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(128, 165);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(228, 23);
-            this.txtStatus.TabIndex = 10;
+            this.textStatus.Location = new System.Drawing.Point(128, 165);
+            this.textStatus.Name = "textStatus";
+            this.textStatus.Size = new System.Drawing.Size(228, 23);
+            this.textStatus.TabIndex = 10;
             // 
             // label4
             // 
@@ -139,16 +141,16 @@ namespace Array
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(555, 382);
-            this.Controls.Add(this.txtStatus);
+            this.Controls.Add(this.textStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtRoomPrice);
+            this.Controls.Add(this.textRoomPrice);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.bntSearch);
-            this.Controls.Add(this.txtRoomType);
+            this.Controls.Add(this.textRoomType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtRoomNumber);
+            this.Controls.Add(this.textRoomID);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -161,15 +163,15 @@ namespace Array
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtRoomNumber;
+        private System.Windows.Forms.TextBox textRoomID;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button bntSearch;
-        private System.Windows.Forms.TextBox txtRoomType;
+        private System.Windows.Forms.TextBox textRoomType;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtRoomPrice;
+        private System.Windows.Forms.TextBox textRoomPrice;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox textStatus;
         private System.Windows.Forms.Label label4;
     }
 }
