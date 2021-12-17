@@ -28,6 +28,16 @@ namespace Episode8_Property
             //obj.sex = "Female";
             //obj.phone = "01084213057";
             obj.show_infor();
+
+            //listBox1.Items.Add(obj);
+
+
+            Get_store st = new Get_store();
+
+            st.AddValue(obj);
+            obj = st.GetValue(0);
+            obj = st.GetValue("Bopha");
+            st.Delete(0);
         }
     }
 }
