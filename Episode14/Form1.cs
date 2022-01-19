@@ -31,20 +31,36 @@ namespace Episode14
             obj[2] = s3;
             obj[3] = s4;
 
-            for(int i=0;i<4;i++)
+            //for(int i=0;i<4;i++)
+            //{
+            //    staff s = obj[0];
+            //    MessageBox.Show("Staff name: " + s.name + " Salary: " + s.salary);
+            //}
+            staff s = obj["ona"];
+            if (s != null)
             {
-                staff s = obj[0];
-                MessageBox.Show("Staff name: " + s.name + "Salary: " + s.salary);
-            }
+                MessageBox.Show("Staff name: " + s.name + " Salary: " + s.salary);
+            }else
+                MessageBox.Show("Staff not found");
         }
     }
     class store
     {
         staff[] st = new staff[100];
+        public int count = 0;
         public staff this[int index]
         {
-            set { st [index] = value; }
+            set { st [index] = value; count++; }
             get { return st[index]; }
+        }
+        public staff this[string index]
+        {
+            get
+            {
+                for (int i = 0; i < this.count; i++)
+                    if (st[i].name == index) return st[i];
+                return null;
+            }
         }
     }
     class staff
