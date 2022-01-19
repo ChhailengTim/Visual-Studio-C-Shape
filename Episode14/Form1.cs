@@ -17,5 +17,40 @@ namespace Episode14
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //List<int> obj = new List<int>();
+            //obj[0] = 123;
+            staff s1 = new staff("Nara", 700);
+            staff s2 = new staff("Bopha", 800);
+            staff s3 = new staff("Mona", 600);
+            staff s4 = new staff("Koko", 900);
+            store obj = new store();
+            obj[0] = s1;
+            obj[1] = s2;
+            obj[2] = s3;
+            obj[3] = s4;
+
+            for(int i=0;i<4;i++)
+            {
+                staff s = obj[0];
+                MessageBox.Show("Staff name: " + s.name + "Salary: " + s.salary);
+            }
+        }
+    }
+    class store
+    {
+        staff[] st = new staff[100];
+        public staff this[int index]
+        {
+            set { st [index] = value; }
+            get { return st[index]; }
+        }
+    }
+    class staff
+    {
+        public string name;
+        public double salary;
+        public staff(string n,double s) { name = n;salary = s; }
     }
 }
