@@ -36,7 +36,7 @@ namespace Episode14
             //    staff s = obj[0];
             //    MessageBox.Show("Staff name: " + s.name + " Salary: " + s.salary);
             //}
-            staff s = obj["ona"];
+            staff s = obj["Mona"];
             if (s != null)
             {
                 MessageBox.Show("Staff name: " + s.name + " Salary: " + s.salary);
