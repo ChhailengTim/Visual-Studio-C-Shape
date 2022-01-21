@@ -36,11 +36,17 @@ namespace Episode15
             //student.pass_student(obj, x=>x.average>=50);
 
             //sample3
-            delshow del1, del2, del3, del;
-            del1 = new delshow(show1);
-            del2 = new delshow(show2);
-            del3 = new delshow(show3);
-            del = del1 + del2 + del3;
+            //delshow del1, del2, del3, del;
+            //del1 = new delshow(show1);
+            //del2 = new delshow(show2);
+            //del3 = new delshow(show3);
+            //del = del1 + del2 + del3;
+            //del -= del2;
+            //del();
+            delshow del = new delshow(show1);
+            del += show2;
+            del += show3;
+            del -= show1;
             del();
 
         }
