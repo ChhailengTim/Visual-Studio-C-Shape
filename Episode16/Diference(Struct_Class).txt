@@ -1,0 +1,30 @@
+*Create Structure
+	-Create Structure is similar to Class, We use 
+	struct keyword to create a struct
+	-Structure can have fields, properties, 
+	contructors and methos...
+
+*Diference Between Classes and Structs(Reference type VS Value type)
+	-Structs can't have destructors,but classes can
+	have destructors.
+	-Structs cannot have explicit parameter less
+	Constructor where as a class can.
+	-Structs can't inherit from another class where as
+	a class can, Both structs and classes can inherit
+	from an interface.
+ 
+*Using NameSpace 
+	-Create NameSpace is the way to organize many 
+	class in project for to be larger.
+*Create DLL file 
+	To create a DLL File, click on New project, 
+	then select Class Library. Enter your code into 
+	the class file that was automatically created 
+	for you and then click Build Solution from the 
+	Debug menu.
+
+
+
+
+
+	
