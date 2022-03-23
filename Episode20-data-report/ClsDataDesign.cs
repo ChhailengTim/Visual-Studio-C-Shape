@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Episode20_data_report
 {
-    class Class1
+    class ClsDataDesign
     {
+        public string Pro_id { set; get; }
+        public string Pro_name { set; get; }
+        public int Qty { set; get; }
+        public double Price { set; get; }
+        public ClsDataDesign(string id, string name, int q,double p)
+        {
+            Pro_id = id;
+            Pro_name = name;
+            Qty = q;
+            Price = p;
+        }
     }
 }
