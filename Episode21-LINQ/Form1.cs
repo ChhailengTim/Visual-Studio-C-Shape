@@ -33,9 +33,10 @@ namespace Episode21_LINQ
             //    }
 
 
-            string[] host_name = { "asp.net", "kkbc.org", "dara.net", "bopha.org", "aming.kh", "tola.com", "kkbbc.com", "nono.net", "lola.kh", "momo.tv" };
+            string[] host_name = { "asp.net", "kkbc.org", "dara.net", "bopha.org", "aming.kh", "tola.com", "kkbbc.com", "nono.net", "lola.", "momo.tv" };
 
             var source = from v in host_name
+                         where v.Substring(v.LastIndexOf(".")).Length > 3
                          //orderby v descending //big to small
                          orderby v ascending //small to big
                          select v;
