@@ -19,14 +19,35 @@ namespace Episode21_LINQ
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int[] value = { 10, 20, 9, -3, 0, 7, 5, 8 };
+            //    int[] value = { 10, 20, 9, -3, 0, 7, 5, 8 };
 
-            var source = from v in value select v;
+            //    var source = from v in value
+            //                 where v >0 && v<10
+            //                 select v;
 
-            foreach (int s in source)
+            //    value[0] = 50;
+
+            //    foreach (int s in source)
+            //    {
+            //        MessageBox.Show("value is : " + s);
+            //    }
+
+
+            string[] host_name = { "asp.net", "kkbc.org", "dara.net", "bopha.org", "aming.kh", "tola.com", "kkbbc.com", "nono.net", "lola.kh", "momo.tv" };
+
+            var source = from v in host_name
+                         //orderby v descending //big to small
+                         orderby v ascending //small to big
+                         select v;
+
+
+            string k = "";
+            foreach(string s in source)
             {
-                MessageBox.Show("value is :" + s);
+                k += s + "\n";
             }
+            MessageBox.Show(k);
+
         }
     }
 }
