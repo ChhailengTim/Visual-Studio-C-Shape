@@ -1,0 +1,19 @@
+*How to Use LINQ
+
++What Is LINQ?
+LINQ stands for language-integrated query. 
+It encompasses a set of features that lets you 
+retrieve information from a data source. 
+
++ Using Sample LINQ with Array 
++ Resource must be selected, when resource change data
+   Select must be change.
++ Filter value with "where"
++ SortResult with Order by
++ A Closer Look At select (M7,A1,E7,A2)
++ Group Result with group(M6)
++ Use keyword "into" to Create continuation  (*)
++ Using keyword "let" to Create a variable in Query
++ Join Two Sequences with join
++ Anonymous Types and Object Initializers
++ Create a Group Join
