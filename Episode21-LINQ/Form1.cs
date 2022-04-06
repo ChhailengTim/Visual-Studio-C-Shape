@@ -105,8 +105,46 @@ namespace Episode21_LINQ
             //}
             //MessageBox.Show(st);
 
-            var value = new { v1 = 1234, v2 = "Hello!", v3 = DateTime.Now, v4 = pro[0] };
-            MessageBox.Show(value.v1 + "\t" + value.v2 + "\t" + value.v3.ToShortDateString() + "\t" + value.v4.pid + "\t" + value.v4.pname + "\t" + value.v4.qty);
+            //var value = new { v1 = 1234, v2 = "Hello!", v3 = DateTime.Now, v4 = pro[0] };
+            //MessageBox.Show(value.v1 + "\t" + value.v2 + "\t" + value.v3.ToShortDateString() + "\t" + value.v4.pid + "\t" + value.v4.pname + "\t" + value.v4.qty);
+            Reader[] Re = new Reader[]
+            {
+                new Reader("R001","bora","student"),
+                new Reader("R002","nana","student"),
+                new Reader("R003","lola","officer"),
+                new Reader("R004","koko","teacher"),
+                new Reader("R005","momo","student"),
+            };
+
+            string[] type = { "student", "teacher", "officer", "other" };
+
+            var source = from vt in type
+                         join vr in Re on vt equals vr.type into new_list_reader
+                         select new { v1 = vt, v2 = new_list_reader };
+
+            string st = "";
+
+            foreach(var s in source)
+            {
+                st += "Type Reader is " + s.v1 + "\n";
+                foreach(Reader r in s.v2)
+                {
+                    st += r.rid + "\t" + r.rname + "\t" + r.type + "\n";
+                }
+            }
+            MessageBox.Show(st);
+        }
+    }
+    class Reader
+    {
+        public string rid { set; get; }
+        public string rname { set; get; }
+        public string type { set; get; }
+        public Reader(string id,string n,string t)
+        {
+            rid = id;
+            rname = n;
+            type=t;
         }
     }
     class Lorder
