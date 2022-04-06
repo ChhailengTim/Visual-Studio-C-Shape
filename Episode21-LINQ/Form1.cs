@@ -50,33 +50,50 @@ namespace Episode21_LINQ
             //}
             //MessageBox.Show(k);
 
-            product[] obj = new product[]
-            { 
-                new product("cocacola", 100, 8.5),
-                new product("cocacola", 100, 8.5),
-                new product("hanuman", 50, 8.6),
-                new product("tiger", 80, 25.5),
-                new product("abc", 150, 25.5),
-                new product("anchor", 200, 15.5),
+            //product[] obj = new product[]
+            //{ 
+            //    new product("cocacola", 100, 8.5),
+            //    new product("cocacola", 100, 8.5),
+            //    new product("hanuman", 50, 8.6),
+            //    new product("tiger", 80, 25.5),
+            //    new product("abc", 150, 25.5),
+            //    new product("anchor", 200, 15.5),
 
+            //};
+
+            //var source = from v in obj
+            //             where v.price<20
+            //             orderby v.pname
+            //                 //select v;
+            //             select new Lpro(v.pname, v.price);
+            //string k = "";
+            ////foreach (product s in source)
+            ////{
+            ////    k += s.pname + "\t" + s.qty + "\t" + s.price + "\n";
+            ////}
+            //foreach(Lpro s in source)
+            //{
+            //    k += s.pname + "\t" + s.price + "\n";
+            //}
+            //MessageBox.Show(k);
+
+            product[] pro = new product[]
+            {
+                new product("p01","coca",100,8.5),
+                new product("p02","7-up",100,7.5),
+                new product("p03","abc",100,25.5),
+                new product("p04","tiger",100,20.5),
             };
 
-            var source = from v in obj
-                         where v.price<20
-                         orderby v.pname
-                             //select v;
-                         select new Lpro(v.pname, v.price);
-            string k = "";
-            //foreach (product s in source)
-            //{
-            //    k += s.pname + "\t" + s.qty + "\t" + s.price + "\n";
-            //}
-            foreach(Lpro s in source)
+            order[] R = new order[]
             {
-                k += s.pname + "\t" + s.price + "\n";
-            }
-            MessageBox.Show(k);
-
+                new order("r001","p01",5,8.5),
+                new order("r001","p03",25,25.5),
+                new order("r002","p01",10,8.5),
+                new order("r002","p03",30,8.5),
+                new order("r002","p04",20,8.5),
+                new order("r003","p01",15,8.5),
+            }; //pname, qty, price, rid
         }
     }
     class Lpro
@@ -87,9 +104,18 @@ namespace Episode21_LINQ
     }
     class product
     {
+        public string pid { set; get; }
         public string pname { set; get; }
         public int qty { set; get; }
         public double price { set; get; }
-        public product(string n,int q,double p) { pname = n;qty = q;price = p; }
+        public product(string n, string v, int q,double p) { pname = n;qty = q;price = p; }
+    }
+    class order
+    {
+        public string rid { set; get; }
+        public string pid { set; get; }
+        public int qty { set; get; }
+        public double price { set; get; }
+        public order(string id, string pi,int q, double p) { }
     }
 }
