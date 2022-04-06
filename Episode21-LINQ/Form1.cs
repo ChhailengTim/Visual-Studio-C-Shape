@@ -85,25 +85,28 @@ namespace Episode21_LINQ
                 new product("p04","tiger",100,20.5),
             };
 
-            order[] R = new order[]
-            {
-                new order("r001","p01",5,8.5),
-                new order("r001","p03",25,25.5),
-                new order("r002","p01",10,8.5),
-                new order("r002","p03",30,25.5),
-                new order("r002","p04",20,80.5),
-                new order("r003","p01",15,8.5),
-            }; //pname, qty, price, rid
+            //order[] R = new order[]
+            //{
+            //    new order("r001","p01",5,8.5),
+            //    new order("r001","p03",25,25.5),
+            //    new order("r002","p01",10,8.5),
+            //    new order("r002","p03",30,25.5),
+            //    new order("r002","p04",20,80.5),
+            //    new order("r003","p01",15,8.5),
+            //}; //pname, qty, price, rid
 
-            var source = from vp in pro
-                         join vr in R on vp.pid equals vr.pid
-                         select new Lorder(vp.pname, vr.qty, vr.price, vr.rid);
-            string st = "";
-            foreach(Lorder s in source)
-            {
-                st += s.pname + "\t" + s.qty + "\t" + s.price + "\t" + s.rid + "\n";
-            }
-            MessageBox.Show(st);
+            //var source = from vp in pro
+            //             join vr in R on vp.pid equals vr.pid
+            //             select new Lorder(vp.pname, vr.qty, vr.price, vr.rid);
+            //string st = "";
+            //foreach(Lorder s in source)
+            //{
+            //    st += s.pname + "\t" + s.qty + "\t" + s.price + "\t" + s.rid + "\n";
+            //}
+            //MessageBox.Show(st);
+
+            var value = new { v1 = 1234, v2 = "Hello!", v3 = DateTime.Now, v4 = pro[0] };
+            MessageBox.Show(value.v1 + "\t" + value.v2 + "\t" + value.v3.ToShortDateString() + "\t" + value.v4.pid + "\t" + value.v4.pname + "\t" + value.v4.qty);
         }
     }
     class Lorder
