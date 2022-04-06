@@ -173,7 +173,7 @@ namespace Episode21_LINQ
         public string pname { set; get; }
         public int qty { set; get; }
         public double price { set; get; }
-        public product(string n, string v, int q,double p) { pname = n;qty = q;pid = p; }
+        public product(string n, string v, int q,double p) { pname = n;qty = q;price = p; }
     }
     class order
     {
