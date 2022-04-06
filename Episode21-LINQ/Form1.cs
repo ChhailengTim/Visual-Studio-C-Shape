@@ -90,10 +90,34 @@ namespace Episode21_LINQ
                 new order("r001","p01",5,8.5),
                 new order("r001","p03",25,25.5),
                 new order("r002","p01",10,8.5),
-                new order("r002","p03",30,8.5),
-                new order("r002","p04",20,8.5),
+                new order("r002","p03",30,25.5),
+                new order("r002","p04",20,80.5),
                 new order("r003","p01",15,8.5),
             }; //pname, qty, price, rid
+
+            var source = from vp in pro
+                         join vr in R on vp.pid equals vr.pid
+                         select new Lorder(vp.pname, vr.qty, vr.price, vr.rid);
+            string st = "";
+            foreach(Lorder s in source)
+            {
+                st += s.pname + "\t" + s.qty + "\t" + s.price + "\t" + s.rid + "\n";
+            }
+            MessageBox.Show(st);
+        }
+    }
+    class Lorder
+    {
+        public string pname { set; get; }
+        public int qty { set; get; }
+        public double price { set; get; }
+        public string rid { set; get; }
+        public Lorder(string n,int q, double p,string id)
+        {
+            pname = n;
+            qty = q;
+            price = p;
+            rid = id;
         }
     }
     class Lpro
@@ -104,11 +128,11 @@ namespace Episode21_LINQ
     }
     class product
     {
-        public string pid { set; get; }
+        public double pid { set; get; }
         public string pname { set; get; }
         public int qty { set; get; }
         public double price { set; get; }
-        public product(string n, string v, int q,double p) { pname = n;qty = q;price = p; }
+        public product(string n, string v, int q,double p) { pname = n;qty = q;pid = p; }
     }
     class order
     {
@@ -116,6 +140,12 @@ namespace Episode21_LINQ
         public string pid { set; get; }
         public int qty { set; get; }
         public double price { set; get; }
-        public order(string id, string pi,int q, double p) { }
+        public order(string id, string pi,int q, double p)
+        {
+            rid = id;
+            pid = pi;
+            qty = q;
+            price=p;
+        }
     }
 }
