@@ -24,7 +24,13 @@ namespace Episode23_using_undataboun
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cnn.ConnectionString = "";
+            cnn.ConnectionString = "Data Source=NAME;Intial catalog=TABLE-NAME;Integrated Security=True";
+            cnn.Open();
+            cmm.Connection = cnn;
+
+            //SQL statements; (Execute: Insert,Delete,Update,Select:)
+            cmm.CommandText = "Insert into TABLE_NAME values('data','data','data','data')";
+            cmm.ExecuteNonQuery();
         }
     }
 }
