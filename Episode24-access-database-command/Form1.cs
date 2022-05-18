@@ -34,6 +34,19 @@ namespace Episode24_access_database_command
             da = new SqlDataAdapter(cmm);
             da.Fill(ds);
             dv = ds.Tables[0].DefaultView;
+
+            dataGridView1.DataSource = dv;
+
+            txtBID.DataBindings.Add(new Binding("text", dv, "FAIL-NAME"));
+            txtBtitle.DataBindings.Add(new Binding("text", dv, "FAIL-NAME"));
+            txtQty.DataBindings.Add(new Binding("text", dv, "FAIL-NAME"));
+            txtAuthor.DataBindings.Add(new Binding("text", dv, "FAIL-NAME"));
+            txtDates.DataBindings.Add(new Binding("text", dv, "FAIL-NAME"));
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
