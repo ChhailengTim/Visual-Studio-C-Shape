@@ -26,7 +26,14 @@ namespace Episode24_access_database_command
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cnn.ConnectionString = "Data Source=NAME-SERVER;intitail catalog=NAME-DATABASE;integrated security=TRUE";
+            cnn.Open();
+            cmm.Connection = cnn;
 
+            cmm.CommandText = "Select * from TABLE-NAME";
+            da = new SqlDataAdapter(cmm);
+            da.Fill(ds);
+            dv = ds.Tables[0].DefaultView;
         }
     }
 }
